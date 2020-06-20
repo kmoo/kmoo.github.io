@@ -100,7 +100,7 @@
 
   <body>
     <div class="top">
-      <h1><b>Hello!</b> I'm <strong>Luke Moorman</strong>, a software engineer in Nashville, TN.</h1>
+      <h1><b><span id="greeting">Hello</span>!</b> I'm <strong>Luke Moorman</strong>, a software engineer in Nashville, TN.</h1>
 
       <p>I'm passionate about <b>front-end development</b>, <b>product analytics</b>, <b>music</b>, <b>writing</b>, <b>ministry</b> and <b>building digital products</b> that solve problems & help people.</p>
 
@@ -119,5 +119,32 @@
         <li><a href="https://github.com/kmoo/sparky">Sparky — Simple, responsive sparklines in Vanilla JavaScript. 📈</a></li>
       </ul>
     </nav>
+
+
+    <script>
+      function getGreeting(hour) {
+        var greetings = {
+          morning: "Good morning",
+          afternoon: "Good afternoon",
+          evening: "Good evening",
+          night: "Good night",
+          default: "Hello"
+        };
+
+        if(hour < 12) {
+          return greetings.morning;
+        } else if(hour < 17) {
+          return greetings.afternoon;
+        } else if(hour < 20) {
+          return greetings.evening;
+        } else if (hour < 24) {
+          return greetings.night;
+        }
+
+        return greetings.default;
+      }
+
+      document.getElementById("greeting").innerHTML = getGreeting(new Date().getHours());
+    </script>
   </body>
 </html>
