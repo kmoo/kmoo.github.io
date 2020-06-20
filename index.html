@@ -43,6 +43,15 @@
       p {
         line-height: 1.5;
       }
+
+      .ExternalNavigation {
+        margin: 0;
+      }
+
+      .ExternalNavigation-items * {
+        padding-bottom: 1rem;
+      }
+
     </style>
     <!-- Place favicon.ico in the root directory -->
   </head>
@@ -53,7 +62,17 @@
     <p>I'm passionate about front-end, product analytics, music, writing, ministry and building digital products that solve problems & help people.</p>
 
     <p>Let's connect!</p>
+    <nav class="ExternalNavigation">
+      <ul class="ExternalNavigation-items">
+        <li><a href="https://github.com/kmoo">My GitHub Profile</a></li>
+      </ul>
+    </nav>
 
-    <nav><a href="https://github.com/kmoo">GitHub</a></nav>
+    <h2>My Projects:</h2>
+    <nav class="ExternalNavigation">
+      <ul class="ExternalNavigation-items">
+        <li><a href="https://github.com/kmoo/sparky">Sparky — Simple, responsive sparklines in Vanilla JavaScript. 📈</a></li>
+      </ul>
+    </nav>
   </body>
 </html>
