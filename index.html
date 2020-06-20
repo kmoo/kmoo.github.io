@@ -18,9 +18,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,600;0,800;1,300&display=swap" rel="stylesheet">
     <style>
       html {
+        --text-color-normal: #333;
+        --text-color-light: #8cabd9;
+
         font-family: 'Open Sans', sans-serif;
         padding: 1rem;
         font-size: 24px;
+        color: var(--text-color-normal);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        html {
+          color: var(--text-color-light);
+          background-color: black;
+        }
       }
 
       body {
@@ -45,7 +56,6 @@
           font-size: 64px;
         }
       }
-
 
       @media only screen and (min-width: 900px) {
         html {
