@@ -48,8 +48,23 @@
         margin: 0;
       }
 
-      .ExternalNavigation-items * {
-        padding-bottom: 1rem;
+      .ExternalNavigation-items {
+        margin: 0;
+      }
+
+      .ExternalNavigation-items li {
+        padding: 0 1rem;
+        display: inline-block;
+      }
+
+      li:before {
+        content: "•";
+        padding-right: 0.5rem;
+      }
+
+      a {
+        padding: 0;
+        margin: 0;
       }
 
     </style>
@@ -61,10 +76,11 @@
 
     <p>I'm passionate about front-end, product analytics, music, writing, ministry and building digital products that solve problems & help people.</p>
 
-    <p>Let's connect!</p>
+    <p>Let's connect! ☕</p>
     <nav class="ExternalNavigation">
       <ul class="ExternalNavigation-items">
-        <li><a href="https://github.com/kmoo">My GitHub Profile</a></li>
+        <li><a href="https://github.com/kmoo">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/lukemoorman">LinkedIn</a></li>
       </ul>
     </nav>
 
