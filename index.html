@@ -67,6 +67,16 @@
         margin: 0;
       }
 
+      .UnstyledLink {
+        text-decoration: none;
+        color: black;
+      }
+
+      .UnstyledLink:hover, .UnstyledLink:focus, .UnstyledLink:active {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+
     </style>
     <!-- Place favicon.ico in the root directory -->
   </head>
@@ -76,9 +86,9 @@
 
     <p>I'm passionate about <b>front-end development</b>, <b>product analytics</b>, <b>music</b>, <b>writing</b>, <b>ministry</b> and <b>building digital products</b> that solve problems & help people.</p>
 
-    <p>Let's connect! ☕ <br><br> <i>-Luke</i></p>
+    <p>Let's <a class="UnstyledLink" href="#connect">connect</a>! ☕ <br><br> <i>-Luke</i><br><br></p>
     <nav class="ExternalNavigation">
-      <h2>Connect</h2>
+      <h2 id="connect">Connect</h2>
       <ul class="ExternalNavigation-items">
         <li><a href="https://github.com/kmoo">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/lukemoorman">LinkedIn</a></li>
