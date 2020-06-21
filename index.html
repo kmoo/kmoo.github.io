@@ -20,17 +20,22 @@
       html {
         --text-color-normal: #333;
         --text-color-light: #8cabd9;
+        --background-color-normal: #ffffff;
+        --background-color-light: #000000;
+        --root-font-size: 24px;
+        --padding-gutter-palm: 1rem;
 
         font-family: 'Open Sans', sans-serif;
-        padding: 1rem;
-        font-size: 24px;
+        padding: var(--padding-gutter-palm);
+        font-size: var(--root-font-size);
         color: var(--text-color-normal);
+        background-color: var(--background-color-normal);
       }
 
       @media (prefers-color-scheme: dark) {
         html {
           color: var(--text-color-light);
-          background-color: black;
+          background-color: var(--background-color-light);
         }
       }
 
