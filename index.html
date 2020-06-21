@@ -31,6 +31,8 @@
         --heading-font-size-desk: 64px;
         /* Spacing */
         --padding-gutter-palm: 1rem;
+        --padding-gutter-lap: 2rem 5rem;
+        --padding-gutter-desk: 3rem 10rem;
         /* Line Height */
         --line-height-large: 1.5;
         --line-height-medium: 1.25;
@@ -64,8 +66,7 @@
 
       @media only screen and (min-width: 500px) {
         html {
-          padding: 2rem 5rem;
-          font-size: 24px;
+          padding: var(--padding-gutter-lap);
         }
 
         h1 {
@@ -75,7 +76,7 @@
 
       @media only screen and (min-width: 900px) {
         html {
-          padding: 3rem 10rem;
+          padding: var(--padding-gutter-desk);
         }
       }
 
