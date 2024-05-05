@@ -24,13 +24,13 @@
   <body>
     <header class="bg-gray-100 py-6 px-8 mb-16">
       <div class="mx-auto flex justify-between items-center">
-        <h1>
+        <div>
           <a href="/"
             ><span class="font-semibold pr-2 text-xl md:text-2xl"
               >Luke Moorman</span
             ><span class="italic">Writer / Software Engineer</span></a
           >
-        </h1>
+        </div>
         <nav class="hidden tracking-wide lg:flex">
           <menu class="text-heading flex space-x-10 tracking-wider">
             <h2 class="sr-only" id="navigation">Navigation</h2>
@@ -74,64 +74,158 @@
       </div>
     </header>
     <main class="px-16 container mx-auto leading-8 max-w-screen-lg">
-      <div
-        id="about"
-        class="flex-row md:flex justify-between items-center mb-16 flex-row-reverse md:flex-row"
-      >
-        <div
-          class="w-full md:w-2/3 text-xl text-align-center mb-4 md:mb-0 md:pr-4"
+      <nav class="mb-4">
+        <a
+          class="text-blue-600 inline-flex align-middle items-center"
+          href="javascript:history.back()"
         >
-          <p class="mb-4">
-            <span id="greeting">Hello!</span> I'm <strong>Luke</strong>, a
-            writer and software engineer in Nashville, TN.
-          </p>
-          <p class="mb-4">
-            I'd love to share in my writing journey with you as I work to become
-            a published author. I am currently querying for my young adult urban
-            fantasy novel,
-            <a href="/books.html"><u>As Light Defines Darkness</u></a
-            >. I also love building digital products that solve problems and
-            help people.
-          </p>
-          <p>
-            <span class="block mb-4"
-              >Let's <u><a href="#newsletter">connect in my newsletter</a></u
-              >! ☕</span
-            >
-            <i class="block">-Luke</i>
-          </p>
-          <script src="greeter.js"></script>
-        </div>
-        <img
-          class="w-auto md:w-1/3 rounded-full max-h-72 m-auto md:max-h-full"
-          src="./profile.png"
-        />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-left"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+            /></svg
+          ><span class="ml-2">Go Back</span></a
+        >
+      </nav>
+      <div class="w-fulltext-xl text-align-center mb-8">
+        <h1 class="font-semibold text-4xl md:text-5xl mb-4">Books</h1>
+        <p class="text-xl mb-4">
+          Howdy! I am currently querying for my young adult novel,
+          <b>As Light Defines Darkness</b>. ✍️ I'll keep you up-to-date with my
+          progress here, as well as other exciting projects!
+        </p>
       </div>
-      <div class="mb-8" id="books">
+
+      <div>
         <div class="mb-8 bg-white p-6 rounded-lg shadow-md w-auto mb-8">
           <div class="mb-4">
-            <h2>Current Project</h2>
+            <img class="w-fit inline-block mr-4" src="./book_image.png" /><span
+              class="text-gray-500 text-xs align-bottom"
+              >*just imagining</span
+            >
+          </div>
+          <h3 class="mb-4 font-semibold text-xl md:text-3xl">
+            As Light Defines Darkness
+          </h3>
+          <p><b class="mr-2 mb-4">Genre:</b>Young Adult - Urban Fantasy</p>
+          <p><b class="mr-2 mb-4">Blurb:</b></p>
+          <p class="italic mb-4 px-8">
+            Aiden’s got everything. Looks, popularity, girls. Until a secret
+            organization decides he’d make the perfect test subject. Now, he’s a
+            shadeling — a human with superhuman abilities if he can learn how to
+            wield them.
+          </p>
+          <p><b class="mr-2 mb-4">Progress:</b></p>
+          <div class="px-8">
             <p class="flex justify-between items-center">
-              <span class="mb-4"
-                ><b>As Light Defines Darkness:</b> Query Literary Agents</span
-              ><span>15%</span>
+              <span>Outlining / Brainstorming</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Zero Draft</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>First Draft</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Revision 1.0</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Alpha Reader Feedback</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Revision 2.0</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Beta Reader Feedback</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Revision 3.0</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Revision 4.0</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Query Literary Agents</span><span>5%</span>
             </p>
             <div class="bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
               <div
-                class="bg-gradient-to-r from-teal-200 to-teal-500 h-2.5 rounded-full"
-                style="width: 15%"
+                class="bg-green-400 h-2.5 rounded-full"
+                style="width: 5%"
               ></div>
             </div>
           </div>
-          <div class="flex justify-center">
-            <a
-              class="block w-fit bg-blue-500 border border-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 focus:border-blue-600"
-              href="/books.html"
-              >See all book projects! 📚</a
-            >
+        </div>
+
+        <div class="mb-8 bg-white p-6 rounded-lg shadow-md w-auto mb-8">
+          <h3 class="mb-4 font-semibold text-xl md:text-3xl">Saint Patrick</h3>
+          <p><b class="mr-2 mb-4">Genre:</b>Young Adult - Historical Fiction</p>
+          <p><b class="mr-2 mb-4">Blurb:</b></p>
+          <p class="italic mb-4 px-8">
+            Picture a young Mother Teresa in Game of Thrones, then you'll get
+            bit of a feel for what this novel is like! Enter the ancient and
+            barbaric world of the teenage slave Maewyn, before he became Saint
+            Patrick.
+          </p>
+          <p><b class="mr-2 mb-4">Progress:</b></p>
+          <div class="px-8">
+            <p class="flex justify-between items-center">
+              <span>Outlining / Brainstorming</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Zero Draft</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>First Draft</span><span>100%</span>
+            </p>
+            <div class="bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div
+                class="bg-green-400 h-2.5 rounded-full"
+                style="width: 100%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8 bg-white p-6 rounded-lg shadow-md w-auto mb-8">
+          <h3 class="mb-4 font-semibold text-xl md:text-3xl">
+            The Gift of Time
+          </h3>
+          <p><b class="mr-2 mb-4">Genre:</b>Young Adult - Urban Fantasy</p>
+          <p><b class="mr-2 mb-4">Blurb:</b></p>
+          <p class="italic mb-4 px-8">
+            In 1930s London, a gifted young orphan with the ability see every
+            possible outcome must evade those that seek to exploit is mind,
+            plunging him and his friends into a grand adventure of survival and
+            self-discovery.
+          </p>
+          <p><b class="mr-2 mb-4">Progress:</b></p>
+          <div class="px-8">
+            <p class="flex justify-between items-center">
+              <span>Outlining / Brainstorming</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>Zero Draft</span><span>✅</span>
+            </p>
+            <p class="flex justify-between items-center">
+              <span>First Draft</span><span>100%</span>
+            </p>
+            <div class="bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div
+                class="bg-green-400 h-2.5 rounded-full"
+                style="width: 100%"
+              ></div>
+            </div>
           </div>
         </div>
       </div>
+
       <div class="flex justify-center">
         <div
           id="newsletter"
