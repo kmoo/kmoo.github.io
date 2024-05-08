@@ -3,24 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <title>About - Luke Moorman</title>
-    <meta name="description" content="Get to know Luke Moorman as a writer, app developer and all-around passionate human. Learn a bit about his journey towards publishing so far and what keeps him motivated." />
+    <meta
+      name="description"
+      content="Get to know Luke Moorman as a writer, app developer and all-around passionate human. Learn a bit about his journey towards publishing so far and what keeps him motivated."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:title" content="About - Luke Moorman" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https:/lukemoorman.com/about" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YDJFM0PD8P"></script>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YDJFM0PD8P"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-YDJFM0PD8P');
+      gtag("config", "G-YDJFM0PD8P");
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .form_input_styling {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 0;
+        z-index: -1;
+      }
+    </style>
   </head>
   <body>
     <header class="bg-gray-100 py-6 px-8 mb-4 sm:mb-16">
@@ -93,7 +112,8 @@
             <path
               fill-rule="evenodd"
               d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-            /></svg>
+            />
+          </svg>
           <span class="ml-2">Go Back</span></a
         >
       </nav>
@@ -113,13 +133,13 @@
           </p>
           <p class="mb-4">
             He's passionate about <a href="/books"><u>writing books</u></a
-            >, but also loves product analytics, music,
-            songwriting, disaster relief, ministry &amp;
-            building apps that solve problems and help people.
+            >, but also loves product analytics, music, songwriting, disaster
+            relief, ministry &amp; building apps that solve problems and help
+            people.
           </p>
           <p class="mb-4">
-            He'd love to share his writing journey with you as he works
-            to become a published author. Check out
+            He'd love to share his writing journey with you as he works to
+            become a published author. Check out
             <u><a href="#newsletter">the newsletter</a></u> for detailed
             updates!
           </p>
@@ -127,7 +147,11 @@
         <img
           class="w-auto md:w-2/5 rounded-lg max-h-72 m-auto md:max-h-full"
           src="./luke_mountains_435x288.webp"
-          srcset="./luke_mountains_435x288.webp 435w, ./luke_mountains_870x576.webp 870w, ./luke_mountains.webp 2048w"
+          srcset="
+            ./luke_mountains_435x288.webp  435w,
+            ./luke_mountains_870x576.webp  870w,
+            ./luke_mountains.webp         2048w
+          "
           sizes="(max-width: 1280px) 358px, 2048px"
           alt="Image of Luke in the mountains hiking"
         />
@@ -154,15 +178,39 @@
               class="flex flex-col sm:flex-row items-center m-auto"
             >
               <input
+                type="text"
+                required
+                placeholder="First Name"
+                name="entry.1599506597"
+                class="block sm:w-auto px-4 py-2 rounded-md sm:rounded-l-md sm:rounded-r-none border border-gray-300 focus:outline-none focus:border-blue-500 box-border mb-2 sm:mb-0"
+              />
+              <input
+                type="text"
+                required
+                placeholder="Last Name"
+                name="entry.552462981"
+                class="block sm:w-auto px-4 py-2 rounded-md sm:rounded-l-none sm:rounded-r-none border border-gray-300 focus:outline-none focus:border-blue-500 box-border mb-2 sm:mb-0"
+              />
+              <input
                 type="email"
+                required
                 name="entry.701932968"
                 placeholder="Email Address"
-                class="block sm:w-auto px-4 py-2 rounded-md sm:rounded-l-md sm:rounded-r-none border border-gray-300 focus:outline-none focus:border-blue-500 box-border mb-2 sm:mb-0"
+                class="block sm:w-auto px-4 py-2 rounded-md sm:rounded-none border border-gray-300 focus:outline-none focus:border-blue-500 box-border mb-2 sm:mb-0"
               />
               <input
                 type="hidden"
                 name="entry.1249432161"
                 value="https://lukemoorman.com/about"
+              />
+              <label class="form_input_styling" for="name"></label>
+              <input
+                class="form_input_styling"
+                autocomplete="off"
+                type="text"
+                id="name"
+                name="entry.915020253"
+                placeholder="Your last name here"
               />
               <button
                 type="submit"
