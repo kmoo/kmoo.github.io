@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- Index -->
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Resources - Luke Moorman</title>
+    <meta name="description" content="Some resources from my Newsletter." />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="Resources - Luke Moorman" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https:/lukemoorman.com/about" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-YDJFM0PD8P"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-YDJFM0PD8P");
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .form_input_styling {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 0;
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-gray-100 py-6 px-8 mb-4 sm:mb-16">
+      <div class="mx-auto flex justify-between items-center">
+        <div>
+          <a href="/"
+            ><span class="font-semibold pr-2 text-xl md:text-2xl"
+              >Luke Moorman</span
+            ><span class="italic block sm:inline-block"
+              >Writer / Software Engineer</span
+            ></a
+          >
+        </div>
+        <nav class="hidden tracking-wide lg:flex">
+          <menu class="text-heading flex space-x-10 tracking-wider">
+            <h2 class="sr-only" id="navigation">Navigation</h2>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/books">Books</a></li>
+            <li><a href="/newsletter">Newsletter</a></li>
+          </menu>
+        </nav>
+        <aside class="flex h-full w-1/2 flex-1 justify-end lg:hidden">
+          <h2 id="mobile-navigation" class="sr-only">Mobile Navigation</h2>
+          <label
+            class="relative z-[9999] cursor-pointer px-3 py-6"
+            for="mobile-menu"
+          >
+            <input class="peer hidden" type="checkbox" id="mobile-menu" />
+            <div
+              class="relative z-50 block h-[1px] w-7 bg-black bg-transparent content-[''] before:absolute before:top-[-0.35rem] before:z-50 before:block before:h-full before:w-full before:bg-black before:transition-all before:duration-200 before:ease-out before:content-[''] after:absolute after:right-0 after:bottom-[-0.35rem] after:block after:h-full after:w-full after:bg-black after:transition-all after:duration-200 after:ease-out after:content-[''] peer-checked:bg-transparent before:peer-checked:top-0 before:peer-checked:w-full before:peer-checked:rotate-45 before:peer-checked:transform after:peer-checked:bottom-0 after:peer-checked:w-full after:peer-checked:-rotate-45 after:peer-checked:transform"
+            ></div>
+            <div
+              class="fixed inset-0 z-40 hidden h-full w-full bg-black/50 backdrop-blur-sm peer-checked:block"
+            >
+              &nbsp;
+            </div>
+            <div
+              class="fixed top-0 right-0 z-40 h-full w-full translate-x-full overflow-y-auto overscroll-y-none transition duration-500 peer-checked:translate-x-0"
+            >
+              <div
+                class="float-right min-h-full w-[85%] bg-white px-6 pt-12 shadow-2xl"
+              >
+                <menu class="flex-row space-y-2 text-xl mt-12">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/books">Books</a></li>
+                  <li><a href="/newsletter">Newsletter</a></li>
+                </menu>
+              </div>
+            </div>
+          </label>
+        </aside>
+      </div>
+    </header>
+    <main class="px-4 sm:px-16 container mx-auto leading-8 max-w-screen-lg">
+      <h2 class="font-semibold text-4xl md:text-5xl mb-4">Resources 📚</h2>
+
+      <div
+        id="resources"
+        class="flex-row md:flex justify-between items-center mb-8 flex-row-reverse md:flex-row"
+      >
+        <div class="w-full text-xl text-align-center mb-4 md:mb-0 md:pr-4">
+          <p class="mb-4">
+            Below are some of my favorite resources, as well as little tidbits
+            I'll link to from my <a href="#newsletter"><u>newsletter</u></a
+            >.
+          </p>
+          <div id="videos">
+            <h3 class="font-semibold text-xl md:text-2xl mb-4 align-middle">
+              <span class="mr-2">Videos</span>
+              <img
+                class="inline-block"
+                src="video.svg"
+                alt="Video icon"
+                width="32"
+              />
+            </h3>
+            <ul class="list-disc px-4">
+              <li id="2020-byu-creative-writing-course" class="mb-4">
+                <span class="font-semibold inline-block mb-4"
+                  >2020 Creative Writing Lectures at BYU:
+                  <a href="https://youtu.be/0cf-qdZ7GbA?si=586dA72mPxShFd2i"
+                    ><u>Youtube Playlist Link</u></a
+                  ></span
+                >
+                <iframe
+                  class="mb-4 w-full aspect-video max-w-xl"
+                  src="https://www.youtube.com/embed/0cf-qdZ7GbA?si=YTSp2jFzxCAmpp-s"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+                <p class="mb-4">
+                  This is one of my favorite classes by one of my favorite
+                  modern fantasy / sci-fi authors
+                  <a href="https://www.brandonsanderson.com/"
+                    ><u>Brandon Sanderson</u>.</a
+                  >
+                </p>
+              </li>
+              <li id="bs-promises-and-payoffs-video" class="mb-4">
+                <span class="font-semibold inline-block mb-4"
+                  >Promises & Payoffs:
+                  <a href="https://www.youtube.com/watch?v=-hO7fM9EHU4"
+                    ><u>Youtube Link</u>.</a
+                  ></span
+                >
+                <iframe
+                  class="mb-4 w-full aspect-video max-w-xl"
+                  src="https://www.youtube.com/embed/-hO7fM9EHU4?si=_UaOq-6ab-aJFbvt"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+                <p>
+                  ...And if you're just interested in getting started with this
+                  promises & payoffs video is a great example of what the course
+                  is like.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <div
+          id="newsletter"
+          class="bg-white p-6 rounded-lg shadow-md w-fit mb-8 text-align-center"
+        >
+          <h2 class="font-semibold mb-4">Newsletter</h2>
+          <div class="flex justify-center">
+            <iframe
+              name="dummyframe"
+              id="dummyframe"
+              style="display: none"
+            ></iframe>
+            <form
+              id="newsletter_form"
+              method="post"
+              action="https://docs.google.com/forms/d/e/1FAIpQLScJRkxp4V_eHCX6F1cBj2EltIT_69JRM1BnR9hYDf7eJVX4Ew/formResponse"
+              target="dummyframe"
+              onsubmit="document.getElementById('newsletter_form').style.display = 'none'; document.getElementById('newsletter_thank_you_message').style.display = 'block';"
+              class="flex flex-col sm:flex-row items-center m-auto"
+            >
+              <input
+                type="text"
+                required
+                placeholder="First Name"
+                name="entry.1599506597"
+                class="block sm:w-auto px-4 py-2 rounded-md sm:rounded-l-md sm:rounded-r-none border border-gray-300 focus:outline-none focus:border-blue-500 box-border mb-2 sm:mb-0"
+              />
+              <input
+                type="text"
+                required
+                placeholder="Last Name"
+                name="entry.552462981"
+                class="block sm:w-auto px-4 py-2 rounded-md sm:rounded-l-none sm:rounded-r-none border border-gray-300 focus:outline-none focus:border-blue-500 box-border mb-2 sm:mb-0"
+              />
+              <input
+                type="email"
+                required
+                name="entry.701932968"
+                placeholder="Email Address"
+                class="block sm:w-auto px-4 py-2 rounded-md sm:rounded-none border border-gray-300 focus:outline-none focus:border-blue-500 box-border mb-2 sm:mb-0"
+              />
+              <input
+                type="hidden"
+                name="entry.1249432161"
+                value="https://lukemoorman.com/about"
+              />
+              <label class="form_input_styling" for="name"></label>
+              <input
+                class="form_input_styling"
+                autocomplete="off"
+                type="text"
+                id="name"
+                name="entry.915020253"
+                placeholder="Your last name here"
+              />
+              <button
+                type="submit"
+                class="block sm:w-auto bg-blue-600 border border-blue-600 text-white font-semibold py-2 px-4 rounded-md sm:rounded-l-none sm:rounded-r-md hover:bg-blue-700 focus:outline-none focus:bg-blue-700 focus:border-blue-700"
+              >
+                Subscribe
+              </button>
+            </form>
+
+            <div id="newsletter_thank_you_message" style="display: none">
+              Thank you! 🎉 I look forward to connecting with you.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="socialbanner" class="mx-auto flex justify-center items-center">
+        <!-- Instagram -->
+        <a
+          class="px-4"
+          href="https://www.instagram.com/lukemoorman_books"
+          target="_blank"
+        >
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/100px-Instagram_icon.png"
+            alt="Instagram app icon"
+            width="40"
+          />
+        </a>
+        <!-- Twitter -->
+        <a class="px-4" href="https://twitter.com/LukeWrites" target="_blank">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/X_logo_2023.svg/100px-X_logo_2023.svg.png"
+            alt="X app icon"
+            width="40"
+          />
+        </a>
+      </div>
+      <div class="text-gray-500 text-sm mt-4 text-center mb-8">
+        &copy; <span id="currentYear"></span> Luke Moorman
+        <script>
+          document.getElementById("currentYear").innerHTML =
+            new Date().getFullYear();
+        </script>
+      </div>
+    </main>
+  </body>
+</html>
