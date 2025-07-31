@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>August Goal Tracker</title>
   <script defer>
+    // UUID generator (v4)
+    function generateUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
+    }
+
+    const DEVICE_KEY = (() => {
+      let id = localStorage.getItem('device-id');
+      if (!id) {
+        id = generateUUID();
+        localStorage.setItem('device-id', id);
+      }
+      return id;
+    })();
+
+    const STORAGE_KEY = `goal-tracker-${DEVICE_KEY}`;
+
     document.addEventListener("DOMContentLoaded", () => {
+      // State
       let originalGoal = 60;
       let goal = originalGoal;
       let progress = { throw: 0, give: 0, sell: 0 };
 
+      // DOM Elements
       const goalEl = document.getElementById("goal-value");
       const originalGoalEl = document.getElementById("original-goal");
       const remainingEl = document.getElementById("remaining");
+
+      // Load saved data
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved) {
+        originalGoal = saved.originalGoal;
+        goal = saved.goal;
+        progress = saved.progress;
+      }
 
       const updateDisplay = () => {
         goalEl.textContent = goal;
         const total = progress.throw + progress.give + progress.sell;
         const remaining = goal - total;
         remainingEl.textContent = remaining;
-        remainingEl.parentElement.classList.toggle("hidden", goal === originalGoal && total === 0);
         originalGoalEl.textContent = originalGoal;
+
+        document.getElementById("throw-value").textContent = progress.throw;
+        document.getElementById("give-value").textContent = progress.give;
+        document.getElementById("sell-value").textContent = progress.sell;
+
+        const showProgress = !(goal === originalGoal && total === 0);
+        document.getElementById("progress-wrapper").classList.toggle("hidden", !showProgress);
+
+        // Save
+        localStorage.setItem(STORAGE_KEY, JSON.stringify({
+          originalGoal,
+          goal,
+          progress
+        }));
       };
 
       const adjustGoal = (delta) => {
@@ -33,7 +75,6 @@
         if (progress[type] + delta >= 0) {
           progress[type] += delta;
           updateDisplay();
-          document.getElementById(`${type}-value`).textContent = progress[type];
         }
       };
 
@@ -50,55 +91,57 @@
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body class="bg-gray-100 text-gray-800 font-sans p-4 max-w-md mx-auto">
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans p-4 min-h-screen flex flex-col items-center justify-start">
 
   <!-- Goal Section -->
-  <div class="text-center mb-6">
-    <h1 class="text-lg font-semibold mb-2">My August Goal</h1>
-    <div class="flex items-center justify-center space-x-4 text-3xl font-bold">
-      <button id="goal-minus" class="bg-red-200 text-red-700 px-3 py-1 rounded-full">–</button>
+  <div class="w-full max-w-md text-center mb-8 mt-4">
+    <h1 class="text-2xl font-bold mb-3 tracking-tight">🎯 My August Goal</h1>
+
+    <div class="flex items-center justify-center space-x-4 text-4xl font-extrabold">
+      <button id="goal-minus" class="w-12 h-12 bg-red-500 bg-opacity-30 text-red-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">–</button>
       <span id="goal-value">60</span>
-      <button id="goal-plus" class="bg-green-200 text-green-700 px-3 py-1 rounded-full">+</button>
+      <button id="goal-plus" class="w-12 h-12 bg-green-500 bg-opacity-30 text-green-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">+</button>
     </div>
-    <div id="progress-wrapper" class="hidden mt-2 text-sm text-gray-600">
+
+    <div id="progress-wrapper" class="hidden mt-3 text-sm text-gray-300">
       Progress: <span id="remaining">60</span> left (of <span id="original-goal">60</span>)
     </div>
   </div>
 
   <!-- Category Controls -->
-  <div class="space-y-4">
+  <div class="space-y-6 w-full max-w-md">
+
     <!-- Throw Away -->
-    <div class="bg-white p-4 rounded shadow flex items-center justify-between">
-      <div class="text-lg font-medium">Throw Away</div>
-      <div class="flex items-center space-x-2">
-        <button id="throw-minus" class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-lg">–</button>
-        <span id="throw-value" class="text-xl font-semibold">0</span>
-        <button id="throw-plus" class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg">+</button>
+    <div class="bg-gradient-to-br from-indigo-600/20 to-purple-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
+      <div class="text-lg font-medium">🗑️ Throw Away</div>
+      <div class="flex items-center space-x-3">
+        <button id="throw-minus" class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
+        <span id="throw-value" class="text-xl font-semibold text-white">0</span>
+        <button id="throw-plus" class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
       </div>
     </div>
 
     <!-- Give Away -->
-    <div class="bg-white p-4 rounded shadow flex items-center justify-between">
-      <div class="text-lg font-medium">Give Away</div>
-      <div class="flex items-center space-x-2">
-        <button id="give-minus" class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-lg">–</button>
-        <span id="give-value" class="text-xl font-semibold">0</span>
-        <button id="give-plus" class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg">+</button>
+    <div class="bg-gradient-to-br from-emerald-600/20 to-cyan-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
+      <div class="text-lg font-medium">🎁 Give Away</div>
+      <div class="flex items-center space-x-3">
+        <button id="give-minus" class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
+        <span id="give-value" class="text-xl font-semibold text-white">0</span>
+        <button id="give-plus" class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
       </div>
     </div>
 
     <!-- Sell Away -->
-    <div class="bg-white p-4 rounded shadow flex items-center justify-between">
-      <div class="text-lg font-medium">Sell Away</div>
-      <div class="flex items-center space-x-2">
-        <button id="sell-minus" class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-lg">–</button>
-        <span id="sell-value" class="text-xl font-semibold">0</span>
-        <button id="sell-plus" class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg">+</button>
+    <div class="bg-gradient-to-br from-yellow-600/20 to-orange-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
+      <div class="text-lg font-medium">💰 Sell Away</div>
+      <div class="flex items-center space-x-3">
+        <button id="sell-minus" class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
+        <span id="sell-value" class="text-xl font-semibold text-white">0</span>
+        <button id="sell-plus" class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
       </div>
     </div>
+
   </div>
 
 </body>
-
 </html>
