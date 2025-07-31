@@ -48,7 +48,7 @@
         goalEl.textContent = goal;
         const total = progress.throw + progress.give + progress.sell;
         const remaining = goal - total;
-        remainingEl.textContent = remaining;
+        const remainingEl = document.getElementById("remaining");
 
         document.getElementById("throw-value").textContent = progress.throw;
         document.getElementById("give-value").textContent = progress.give;
@@ -57,7 +57,18 @@
         const showProgress = !(goal === originalGoal && total === 0);
         document.getElementById("progress-wrapper").classList.toggle("hidden", !showProgress);
 
-        // Save
+        // Update remaining text and styling
+        if (remaining >= 0) {
+          remainingEl.textContent = `${remaining} left to go.`;
+          remainingEl.classList.remove("text-green-400", "font-bold");
+          remainingEl.classList.add("text-gray-300", "font-normal");
+        } else {
+          remainingEl.textContent = `+${Math.abs(remaining)} over. 🎉`;
+          remainingEl.classList.remove("text-gray-300", "font-normal");
+          remainingEl.classList.add("text-green-400", "font-bold");
+        }
+
+        // Save to localStorage
         localStorage.setItem(STORAGE_KEY, JSON.stringify({
           originalGoal,
           goal,
@@ -107,7 +118,7 @@
     </div>
 
     <div id="progress-wrapper" class="hidden mt-3 text-sm text-gray-300">
-      Progress: <span id="remaining">60</span> left to go.
+      Progress: <span id="remaining">60</span>
     </div>
   </div>
 
