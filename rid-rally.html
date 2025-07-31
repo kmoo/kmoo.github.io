@@ -128,11 +128,12 @@
         class="ml-2 bg-gradient-to-r from-green-400 via-blue-400 to-blue-600 bg-clip-text text-transparent">Throw Away,
         Give Away, Sell Away</span>
     </h1>
+
     <div class="max-w-md mx-auto text-center mb-6">
       <button aria-expanded="false"
         class="learn-more-btn flex items-center text-sm text-blue-400 mx-auto focus:outline-none"
         onclick="toggleLearnMore(this)">
-        Learn more
+        <span class="btn-text">Learn more</span>
         <svg class="ml-1 w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2"
           viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
@@ -152,28 +153,27 @@
         <strong>Give away:</strong> This is your go-to for second chances: thrift stores, friends, or coworkers.
       </p>
       <p class="mb-4">
-        <strong>Sell away:</strong> Let’s be honest — how often do hoarders say, ‘I’m just trying to sell this,’ but
-        never really follow through? This is your last resort: if you can’t sell it, give it away or throw it out!
+        <strong>Sell away:</strong> Let’s be honest — how often do we say, ‘I’m just trying to sell this,’ but
+        never really follow through? Don’t make this your last resort: if you can’t sell it, give it away or throw it out!
       </p>
     </div>
 
     <script>
       function toggleLearnMore(btn) {
         const fullText = document.getElementById('intro-full');
+        const btnText = btn.querySelector('.btn-text');
         const isHidden = fullText.classList.contains('hidden');
 
         if (isHidden) {
           fullText.classList.remove('hidden');
           btn.setAttribute('aria-expanded', 'true');
           btn.querySelector('svg').classList.add('rotate-180');
-          btn.textContent = 'Show less';
-          btn.appendChild(btn.querySelector('svg'));
+          btnText.textContent = 'Show less';
         } else {
           fullText.classList.add('hidden');
           btn.setAttribute('aria-expanded', 'false');
           btn.querySelector('svg').classList.remove('rotate-180');
-          btn.textContent = 'Learn more';
-          btn.appendChild(btn.querySelector('svg'));
+          btnText.textContent = 'Learn more';
         }
       }
     </script>
