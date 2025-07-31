@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>August Goal Tracker</title>
+  <title>Rid Rally: Monthly Riddance Goal Tracker</title>
   <script defer>
     // UUID generator (v4)
     function generateUUID() {
@@ -24,9 +24,19 @@
       return id;
     })();
 
-    const STORAGE_KEY = `goal-tracker-${DEVICE_KEY}`;
+    const now = new Date();
+    const monthYear = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+    const STORAGE_KEY = `goal-tracker-${DEVICE_KEY}-${monthYear}`;
 
     document.addEventListener("DOMContentLoaded", () => {
+      const goalTitleEl = document.getElementById("goal-title");
+      const monthNames = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      const now = new Date();
+      const currentMonthName = monthNames[now.getMonth()];
+      goalTitleEl.textContent = `🎯 My ${currentMonthName} Goal`;
       // State
       let originalGoal = 60;
       let goal = originalGoal;
@@ -113,19 +123,24 @@
 
   <!-- Goal Section -->
   <div class="w-full max-w-md text-center mb-8 mt-4">
-    <h1 class="text-2xl font-bold mb-3 tracking-tight">🎯 My August Goal</h1>
+    <h1 class="text-lg font-semibold mb-2 tracking-wide drop-shadow-sm">
+      <span class="text-gray-300 font-extrabold">RidRally:</span><span
+        class="ml-2 bg-gradient-to-r from-green-400 via-blue-400 to-blue-600 bg-clip-text text-transparent">Throw Away,
+        Give Away, Sell Away</span>
+    </h1>
+    <h2 id="goal-title" class="text-2xl font-bold mb-3 tracking-tight">🎯 My Monthly Goal</h1>
 
-    <div class="flex items-center justify-center space-x-4 text-4xl font-extrabold">
-      <button id="goal-minus"
-        class="w-12 h-12 bg-red-500 bg-opacity-30 text-red-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">–</button>
-      <span id="goal-value">60</span>
-      <button id="goal-plus"
-        class="w-12 h-12 bg-green-500 bg-opacity-30 text-green-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">+</button>
-    </div>
+      <div class="flex items-center justify-center space-x-4 text-4xl font-extrabold">
+        <button id="goal-minus"
+          class="w-12 h-12 bg-red-500 bg-opacity-30 text-red-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">–</button>
+        <span id="goal-value">60</span>
+        <button id="goal-plus"
+          class="w-12 h-12 bg-green-500 bg-opacity-30 text-green-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">+</button>
+      </div>
 
-    <div id="progress-wrapper" class="hidden mt-3 text-sm text-gray-300">
-      <span id="remaining">60</span>
-    </div>
+      <div id="progress-wrapper" class="hidden mt-3 text-sm text-gray-300">
+        <span id="remaining">60</span>
+      </div>
   </div>
 
   <!-- Category Controls -->
@@ -173,7 +188,7 @@
   </div>
   <p class="mt-12 text-xs text-gray-400 text-center max-w-md">
     *This site uses <code>localStorage</code>. Your data will be lost if you use a private/incognito window or clear
-    your browser cache.
+    your browser cache. Until I add a back-end, consider taking a screenshot every now and then.
   </p>
 </body>
 
