@@ -165,6 +165,7 @@
         const fullText = document.getElementById('intro-full');
         const btnText = btn.querySelector('.btn-text');
         const isHidden = fullText.classList.contains('hidden');
+        const specialPower = document.getElementById('special-bonus-power');
 
         if (isHidden) {
           fullText.classList.remove('hidden');
@@ -176,6 +177,7 @@
           btn.setAttribute('aria-expanded', 'false');
           btn.querySelector('svg').classList.remove('rotate-180');
           btnText.textContent = 'Learn more';
+          specialPower.classList.remove('hidden');
         }
       }
     </script>
@@ -192,6 +194,22 @@
 
       <div id="progress-wrapper" class="hidden mt-3 text-sm text-gray-300">
         <span id="remaining">60</span>
+      </div>
+      <div class="hidden" id="special-bonus-power">
+        <button onclick="playAirhorn()"
+          class="px-6 py-3 text-lg font-bold text-white bg-red-600 rounded-lg shadow-md hover:bg-red-700 active:scale-95 transition transform duration-150 ease-in-out">
+          🔊 Airhorn
+        </button>
+
+        <audio id="airhorn-sound" src="https://www.myinstants.com/media/sounds/airhorn.mp3" preload="auto"></audio>
+
+        <script>
+          function playAirhorn() {
+            const sound = document.getElementById('airhorn-sound');
+            sound.currentTime = 0;
+            sound.play();
+          }
+        </script>
       </div>
   </div>
 
