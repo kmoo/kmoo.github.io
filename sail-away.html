@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>August Goal Tracker</title>
   <script defer>
     // UUID generator (v4)
@@ -33,7 +34,6 @@
 
       // DOM Elements
       const goalEl = document.getElementById("goal-value");
-      const originalGoalEl = document.getElementById("original-goal");
       const remainingEl = document.getElementById("remaining");
 
       // Load saved data
@@ -49,7 +49,6 @@
         const total = progress.throw + progress.give + progress.sell;
         const remaining = goal - total;
         remainingEl.textContent = remaining;
-        originalGoalEl.textContent = originalGoal;
 
         document.getElementById("throw-value").textContent = progress.throw;
         document.getElementById("give-value").textContent = progress.give;
@@ -91,20 +90,24 @@
   </script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans p-4 min-h-screen flex flex-col items-center justify-start">
+
+<body
+  class="bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans p-4 min-h-screen flex flex-col items-center justify-start">
 
   <!-- Goal Section -->
   <div class="w-full max-w-md text-center mb-8 mt-4">
     <h1 class="text-2xl font-bold mb-3 tracking-tight">🎯 My August Goal</h1>
 
     <div class="flex items-center justify-center space-x-4 text-4xl font-extrabold">
-      <button id="goal-minus" class="w-12 h-12 bg-red-500 bg-opacity-30 text-red-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">–</button>
+      <button id="goal-minus"
+        class="w-12 h-12 bg-red-500 bg-opacity-30 text-red-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">–</button>
       <span id="goal-value">60</span>
-      <button id="goal-plus" class="w-12 h-12 bg-green-500 bg-opacity-30 text-green-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">+</button>
+      <button id="goal-plus"
+        class="w-12 h-12 bg-green-500 bg-opacity-30 text-green-300 hover:bg-opacity-50 rounded-full flex items-center justify-center transition">+</button>
     </div>
 
     <div id="progress-wrapper" class="hidden mt-3 text-sm text-gray-300">
-      Progress: <span id="remaining">60</span> left (of <span id="original-goal">60</span>)
+      Progress: <span id="remaining">60</span> left to go.
     </div>
   </div>
 
@@ -112,36 +115,49 @@
   <div class="space-y-6 w-full max-w-md">
 
     <!-- Throw Away -->
-    <div class="bg-gradient-to-br from-indigo-600/20 to-purple-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
+    <div
+      class="bg-gradient-to-br from-indigo-600/20 to-purple-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
       <div class="text-lg font-medium">🗑️ Throw Away</div>
       <div class="flex items-center space-x-3">
-        <button id="throw-minus" class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
+        <button id="throw-minus"
+          class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
         <span id="throw-value" class="text-xl font-semibold text-white">0</span>
-        <button id="throw-plus" class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
+        <button id="throw-plus"
+          class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
       </div>
     </div>
 
     <!-- Give Away -->
-    <div class="bg-gradient-to-br from-emerald-600/20 to-cyan-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
+    <div
+      class="bg-gradient-to-br from-emerald-600/20 to-cyan-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
       <div class="text-lg font-medium">🎁 Give Away</div>
       <div class="flex items-center space-x-3">
-        <button id="give-minus" class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
+        <button id="give-minus"
+          class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
         <span id="give-value" class="text-xl font-semibold text-white">0</span>
-        <button id="give-plus" class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
+        <button id="give-plus"
+          class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
       </div>
     </div>
 
     <!-- Sell Away -->
-    <div class="bg-gradient-to-br from-yellow-600/20 to-orange-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
+    <div
+      class="bg-gradient-to-br from-yellow-600/20 to-orange-600/10 backdrop-blur-md rounded-2xl p-5 shadow-lg flex items-center justify-between">
       <div class="text-lg font-medium">💰 Sell Away</div>
       <div class="flex items-center space-x-3">
-        <button id="sell-minus" class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
+        <button id="sell-minus"
+          class="w-10 h-10 bg-red-500 bg-opacity-30 text-red-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">–</button>
         <span id="sell-value" class="text-xl font-semibold text-white">0</span>
-        <button id="sell-plus" class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
+        <button id="sell-plus"
+          class="w-10 h-10 bg-green-500 bg-opacity-30 text-green-200 hover:bg-opacity-50 rounded-full flex items-center justify-center text-xl">+</button>
       </div>
     </div>
 
   </div>
-
+  <p class="mt-12 text-xs text-gray-400 text-center max-w-md">
+    *This site uses <code>localStorage</code>. Your data will be lost if you use a private/incognito window or clear
+    your browser cache.
+  </p>
 </body>
+
 </html>
