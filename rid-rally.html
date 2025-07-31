@@ -128,6 +128,56 @@
         class="ml-2 bg-gradient-to-r from-green-400 via-blue-400 to-blue-600 bg-clip-text text-transparent">Throw Away,
         Give Away, Sell Away</span>
     </h1>
+    <div class="max-w-md mx-auto text-center mb-6">
+      <button aria-expanded="false"
+        class="learn-more-btn flex items-center text-sm text-blue-400 mx-auto focus:outline-none"
+        onclick="toggleLearnMore(this)">
+        Learn more
+        <svg class="ml-1 w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="intro-full" class="max-w-md mx-auto text-center text-gray-300 hidden">
+      <p class="mb-4">
+        Ready to start your month with Rid Rally? Whether single, married, or whole family, this is a great way to hold
+        yourself accountable and get change going in your life.
+      </p>
+      <p class="mb-4">
+        <strong>Throw away:</strong> Aim for this to be your main source of riddance.
+      </p>
+      <p class="mb-4">
+        <strong>Give away:</strong> This is your go-to for second chances: thrift stores, friends, or coworkers.
+      </p>
+      <p class="mb-4">
+        <strong>Sell away:</strong> Let’s be honest — how often do hoarders say, ‘I’m just trying to sell this,’ but
+        never really follow through? This is your last resort: if you can’t sell it, give it away or throw it out!
+      </p>
+    </div>
+
+    <script>
+      function toggleLearnMore(btn) {
+        const fullText = document.getElementById('intro-full');
+        const isHidden = fullText.classList.contains('hidden');
+
+        if (isHidden) {
+          fullText.classList.remove('hidden');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.querySelector('svg').classList.add('rotate-180');
+          btn.textContent = 'Show less';
+          btn.appendChild(btn.querySelector('svg'));
+        } else {
+          fullText.classList.add('hidden');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.querySelector('svg').classList.remove('rotate-180');
+          btn.textContent = 'Learn more';
+          btn.appendChild(btn.querySelector('svg'));
+        }
+      }
+    </script>
+
     <h2 id="goal-title" class="text-2xl font-bold mb-3 tracking-tight">🎯 My Monthly Goal</h1>
 
       <div class="flex items-center justify-center space-x-4 text-4xl font-extrabold">
