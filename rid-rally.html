@@ -59,6 +59,7 @@
         const total = progress.throw + progress.give + progress.sell;
         const remaining = goal - total;
         const remainingEl = document.getElementById("remaining");
+        const specialPower = document.getElementById('special-bonus-power');
 
         document.getElementById("throw-value").textContent = progress.throw;
         document.getElementById("give-value").textContent = progress.give;
@@ -82,6 +83,7 @@
           // Surpassed the goal
           remainingEl.textContent = `+${Math.abs(remaining)} over. 🎉`;
           remainingEl.classList.add("text-green-400", "font-bold");
+          specialPower.classList.remove('hidden');
         }
 
         // Save
@@ -165,7 +167,6 @@
         const fullText = document.getElementById('intro-full');
         const btnText = btn.querySelector('.btn-text');
         const isHidden = fullText.classList.contains('hidden');
-        const specialPower = document.getElementById('special-bonus-power');
 
         if (isHidden) {
           fullText.classList.remove('hidden');
@@ -177,7 +178,6 @@
           btn.setAttribute('aria-expanded', 'false');
           btn.querySelector('svg').classList.remove('rotate-180');
           btnText.textContent = 'Learn more';
-          specialPower.classList.remove('hidden');
         }
       }
     </script>
@@ -197,8 +197,8 @@
       </div>
       <div class="hidden" id="special-bonus-power">
         <button onclick="playAirhorn()"
-          class="px-6 py-3 text-lg font-bold text-white bg-red-600 rounded-lg shadow-md hover:bg-red-700 active:scale-95 transition transform duration-150 ease-in-out">
-          🔊 Airhorn
+          class="px-6 py-3 text-lg font-bold text-white bg-green-600 rounded-lg shadow-md hover:bg-green-700 active:scale-95 transition transform duration-150 ease-in-out mt-4 mb-4">
+          🔊 Let’s Crank It Up! 🔊
         </button>
 
         <audio id="airhorn-sound" src="https://www.myinstants.com/media/sounds/airhorn.mp3" preload="auto"></audio>
