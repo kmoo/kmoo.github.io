@@ -1,27 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex">
-  <title>SailAway: Monthly Throw Away, Give Away, Sell Away</title>
+  <title>August Goal Tracker</title>
+  <script defer>
+    document.addEventListener("DOMContentLoaded", () => {
+      let originalGoal = 60;
+      let goal = originalGoal;
+      let progress = { throw: 0, give: 0, sell: 0 };
+
+      const goalEl = document.getElementById("goal-value");
+      const originalGoalEl = document.getElementById("original-goal");
+      const remainingEl = document.getElementById("remaining");
+
+      const updateDisplay = () => {
+        goalEl.textContent = goal;
+        const total = progress.throw + progress.give + progress.sell;
+        const remaining = goal - total;
+        remainingEl.textContent = remaining;
+        remainingEl.parentElement.classList.toggle("hidden", goal === originalGoal && total === 0);
+        originalGoalEl.textContent = originalGoal;
+      };
+
+      const adjustGoal = (delta) => {
+        goal += delta;
+        updateDisplay();
+      };
+
+      const adjustCategory = (type, delta) => {
+        if (progress[type] + delta >= 0) {
+          progress[type] += delta;
+          updateDisplay();
+          document.getElementById(`${type}-value`).textContent = progress[type];
+        }
+      };
+
+      document.getElementById("goal-plus").addEventListener("click", () => adjustGoal(1));
+      document.getElementById("goal-minus").addEventListener("click", () => adjustGoal(-1));
+
+      ["throw", "give", "sell"].forEach((type) => {
+        document.getElementById(`${type}-plus`).addEventListener("click", () => adjustCategory(type, 1));
+        document.getElementById(`${type}-minus`).addEventListener("click", () => adjustCategory(type, -1));
+      });
+
+      updateDisplay();
+    });
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-950 text-white flex items-center justify-center min-h-screen">
-  <div class="text-center">
-    <h1 class="text-xl text-gray-400 mb-4">SailAway: Monhtly Throw Away, Give Away, Sell Away</h1>
-    <div id="dayCount" class="text-9xl font-extrabold bg-gradient-to-r from-teal-400 to-indigo-500 text-transparent bg-clip-text">
-      My August Goal: 60
+
+<body class="bg-gray-100 text-gray-800 font-sans p-4 max-w-md mx-auto">
+
+  <!-- Goal Section -->
+  <div class="text-center mb-6">
+    <h1 class="text-lg font-semibold mb-2">My August Goal</h1>
+    <div class="flex items-center justify-center space-x-4 text-3xl font-bold">
+      <button id="goal-minus" class="bg-red-200 text-red-700 px-3 py-1 rounded-full">–</button>
+      <span id="goal-value">60</span>
+      <button id="goal-plus" class="bg-green-200 text-green-700 px-3 py-1 rounded-full">+</button>
     </div>
-    <div id="dayCount" class="text-9xl font-extrabold bg-gradient-to-r from-teal-400 to-indigo-500 text-transparent bg-clip-text">
-      Throw Away: 0 <button>+</button>
-    </div>
-    <div id="dayCount" class="text-9xl font-extrabold bg-gradient-to-r from-teal-400 to-indigo-500 text-transparent bg-clip-text">
-      Give Away: 0 <button>+</button>
-    </div>
-        <div id="dayCount" class="text-9xl font-extrabold bg-gradient-to-r from-teal-400 to-indigo-500 text-transparent bg-clip-text">
-      Sell Away: 0 <button>+</button>
+    <div id="progress-wrapper" class="hidden mt-2 text-sm text-gray-600">
+      Progress: <span id="remaining">60</span> left (of <span id="original-goal">60</span>)
     </div>
   </div>
+
+  <!-- Category Controls -->
+  <div class="space-y-4">
+    <!-- Throw Away -->
+    <div class="bg-white p-4 rounded shadow flex items-center justify-between">
+      <div class="text-lg font-medium">Throw Away</div>
+      <div class="flex items-center space-x-2">
+        <button id="throw-minus" class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-lg">–</button>
+        <span id="throw-value" class="text-xl font-semibold">0</span>
+        <button id="throw-plus" class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg">+</button>
+      </div>
+    </div>
+
+    <!-- Give Away -->
+    <div class="bg-white p-4 rounded shadow flex items-center justify-between">
+      <div class="text-lg font-medium">Give Away</div>
+      <div class="flex items-center space-x-2">
+        <button id="give-minus" class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-lg">–</button>
+        <span id="give-value" class="text-xl font-semibold">0</span>
+        <button id="give-plus" class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg">+</button>
+      </div>
+    </div>
+
+    <!-- Sell Away -->
+    <div class="bg-white p-4 rounded shadow flex items-center justify-between">
+      <div class="text-lg font-medium">Sell Away</div>
+      <div class="flex items-center space-x-2">
+        <button id="sell-minus" class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-lg">–</button>
+        <span id="sell-value" class="text-xl font-semibold">0</span>
+        <button id="sell-plus" class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg">+</button>
+      </div>
+    </div>
+  </div>
+
 </body>
+
 </html>
